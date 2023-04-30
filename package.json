@@ -15,6 +15,7 @@
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.1",
     "@types/styled-components": "^5.1.26",
+    "antd": "^5.4.6",
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.1",
     "next": "13.3.1",

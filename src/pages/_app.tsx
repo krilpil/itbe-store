@@ -1,11 +1,10 @@
 import type { AppProps } from "next/app";
-import GlobalStyle from "@app/theme/ui/GlobalStyles";
+import Providers from "@app/providers";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <GlobalStyle />
+    <Providers>
       <Component {...pageProps} />
-    </>
+    </Providers>
   );
 }

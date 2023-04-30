@@ -1,6 +1,8 @@
 import Head from "next/head";
+import Home from "@screens/home";
+import Header from "@widgets/header";
 
-export default function Home() {
+const HomePage = () => {
   return (
     <>
       <Head>
@@ -9,9 +11,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header />
       <main>
-        <p>qweqweqwewqe</p>
+        <Home />
       </main>
     </>
   );
-}
+};
+
+export default HomePage;
