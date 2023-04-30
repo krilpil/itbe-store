@@ -1,7 +1,7 @@
-import { SHeader, SWrapper } from "@widgets/header/ui/header.styles";
 import Menu from "@features/menu";
+import { SHeader, SWrapper } from "./header.styles";
 
-const Header = () => {
+const Index = () => {
   return (
     <SWrapper>
       <SHeader>
@@ -11,4 +11,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Index;

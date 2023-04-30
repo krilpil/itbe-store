@@ -8,6 +8,10 @@ const theme: DefaultTheme = {
     maxLaptops: ScreenBreakpoints.maxLaptops,
     maxDesktops: ScreenBreakpoints.maxDesktops,
   },
+  colors: {
+    lightGray: "#f4f2f0",
+    white: "#ffffff",
+  },
 };
 
 export default theme;

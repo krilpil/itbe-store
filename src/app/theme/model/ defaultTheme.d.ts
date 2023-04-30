@@ -8,5 +8,9 @@ declare module "styled-components" {
       maxLaptops: number;
       maxDesktops: number;
     };
+    colors: {
+      lightGray: string;
+      white: string;
+    };
   }
 }
