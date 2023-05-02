@@ -1,20 +1,20 @@
-import { Space, Tag } from "antd";
-import { SSearch, STitle } from "./search.styles";
+import { Tag } from "antd";
+import { SSearch, STags } from "./search.styles";
 import SearchInput from "./searchInput";
 
 const Search = () => {
   return (
     <SSearch>
-      <STitle>Найди всю одежду, обувь и аксессуары здесь!</STitle>
       <SearchInput />
-      <Space>
+      <STags>
         <Tag>Кроссовки adidas</Tag>
         <Tag>Кроссовки adidas</Tag>
         <Tag>Кроссовки adidas</Tag>
         <Tag>Кроссовки adidas</Tag>
         <Tag>Кроссовки adidas</Tag>
         <Tag>Кроссовки adidas</Tag>
-      </Space>
+        <Tag>Кроссовки adidas</Tag>
+      </STags>
     </SSearch>
   );
 };

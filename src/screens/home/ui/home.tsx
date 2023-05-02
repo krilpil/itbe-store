@@ -1,10 +1,13 @@
-import Search from "@widgets/search";
-import { SHome } from "@screens/home/ui/home.styles";
+import Search from "@features/search";
+import { SHome, STitle } from "@screens/home/ui/home.styles";
+import AdvancedFilters from "@features/advancedFilters";
 
 const Home = () => {
   return (
     <SHome>
+      <STitle>Найди всю одежду, обувь и аксессуары здесь!</STitle>
       <Search />
+      <AdvancedFilters />
     </SHome>
   );
 };

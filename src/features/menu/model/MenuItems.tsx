@@ -1,24 +1,9 @@
 import { MenuProps } from "antd";
+import { Structures } from "@entities/product";
 
-enum MenuKeys {
-  clothing,
-  shoes,
-  accessories,
-}
-
-const MenuItems: MenuProps["items"] = [
-  {
-    label: "Одежда",
-    key: MenuKeys.clothing,
-  },
-  {
-    label: "Обувь",
-    key: MenuKeys.shoes,
-  },
-  {
-    label: "Аксессуары",
-    key: MenuKeys.accessories,
-  },
-];
-
+const MenuItems: MenuProps["items"] = Structures.map(({ label, key, children }) => ({
+  label,
+  key,
+  children: children?.map(childrenItem => ({ label: childrenItem.label, key: childrenItem.key })),
+}));
 export default MenuItems;
