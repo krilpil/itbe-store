@@ -1,15 +1,17 @@
 import { PropsWithChildren } from "react";
-import Header from "./header";
-import { SMain, SWrapper } from "./layout.style";
+import Menu from "@features/menu";
+import { SFooter, SLogo, SContent, SWrapper, SMain } from "./layout.style";
 
 const Layout = ({ children }: PropsWithChildren) => {
   return (
-    <>
-      <Header />
-      <SWrapper>
+    <SWrapper>
+      <SLogo>ITBE.STORE</SLogo>
+      <SContent>
+        <Menu />
         <SMain>{children}</SMain>
-      </SWrapper>
-    </>
+      </SContent>
+      <SFooter>Created by Bespalov K.</SFooter>
+    </SWrapper>
   );
 };
 

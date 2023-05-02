@@ -1,17 +1,42 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const SWrapper = styled.main`
+const CssLayout = css`
   display: flex;
   justify-content: center;
-  min-height: calc(100vh - 46px);
+  align-items: center;
+  height: 50px;
 `;
 
-export const SMain = styled.div`
+export const SLogo = styled.div`
+  ${CssLayout}
+`;
+
+export const SFooter = styled.footer`
+  color: #cccccc;
+  ${CssLayout}
+`;
+
+export const SWrapper = styled.div`
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+  margin: 0 20px;
+`;
+
+export const SContent = styled.div`
+  display: flex;
+  justify-self: center;
+  gap: 20px;
   max-width: ${({ theme }) => theme.breakpoints.maxDesktops}px;
   width: 100%;
-  margin: 20px;
-  padding: 20px;
+  padding: 40px 20px;
   border-radius: 10px;
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 0 0 20px 10px rgb(0, 0, 0, 0.05);
+`;
+
+export const SMain = styled.main`
+  padding: 0 20px;
+  width: 100%;
 `;

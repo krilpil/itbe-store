@@ -1,8 +1,11 @@
+import Search from "@widgets/search";
+import { SHome } from "@screens/home/ui/home.styles";
+
 const Home = () => {
   return (
-    <div>
-      <p>2qewqweqwqwee</p>
-    </div>
+    <SHome>
+      <Search />
+    </SHome>
   );
 };
 
