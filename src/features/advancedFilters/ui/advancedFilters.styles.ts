@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import { Collapse } from "antd";
+import { Collapse, Form, Select } from "antd";
 
 export const SAdvancedFilters = styled(Collapse).attrs({
   ghost: true,
 })`
-  max-width: ${({ theme }) => theme.breakpoints.maxTablets}px;
   width: 100%;
 
   & .ant-collapse-item > .ant-collapse-header {
@@ -13,7 +12,19 @@ export const SAdvancedFilters = styled(Collapse).attrs({
 
   & .ant-collapse-content > .ant-collapse-content-box {
     padding: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
   }
 `;
+
+export const SForm = styled(Form)`
+  display: grid;
+  grid-gap: 0 30px;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+`;
+
+export const SFormItem = styled(Form.Item)`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const SSelect = styled(Select)``;

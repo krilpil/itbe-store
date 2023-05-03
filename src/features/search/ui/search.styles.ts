@@ -1,26 +1,15 @@
 import styled from "styled-components";
+import { Segmented } from "antd";
 
 export const SSearch = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: ${({ theme }) => theme.breakpoints.maxTablets}px;
+  gap: 20px;
   width: 100%;
-  gap: 10px;
 `;
 
-export const STags = styled.div`
+export const SSegmented = styled(Segmented)`
   display: flex;
-  width: 100%;
-  gap: 10px;
-  overflow: hidden;
-  overflow-x: auto;
-  transition: 0.5s;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  & .ant-tag {
-    margin-inline-end: 0;
-  }
+  align-self: center;
+  width: max-content;
 `;

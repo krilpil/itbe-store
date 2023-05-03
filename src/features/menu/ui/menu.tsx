@@ -1,8 +1,17 @@
 import { SMenu } from "@features/menu/ui/menu.styles";
+import { useState } from "react";
+import { MenuProps } from "antd";
 import MenuItems from "../model/MenuItems";
 
 const Menu = () => {
-  return <SMenu items={MenuItems} />;
+  const [openKeys, setOpenKeys] = useState<string[]>([]);
+
+  const handlerOpenChange: MenuProps["onOpenChange"] = keys => {
+    const currentKey = keys.at(-1) || "";
+    setOpenKeys(currentKey ? [currentKey] : []);
+  };
+
+  return <SMenu items={MenuItems} openKeys={openKeys} onOpenChange={handlerOpenChange} />;
 };
 
 export default Menu;

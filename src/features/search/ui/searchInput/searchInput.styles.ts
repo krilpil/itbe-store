@@ -1,10 +1,16 @@
 import styled from "styled-components";
-import { Input, Select, Space } from "antd";
+import { Input, Select, Space, Tag } from "antd";
 
-export const SSearchInput = styled(Space.Compact)`
-  height: 50px;
+export const SWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   width: 100%;
+`;
 
+export const SSelectWithInput = styled(Space.Compact)`
+  height: 56px;
+  width: 100%;
   .ant-input-wrapper {
     height: 100%;
   }
@@ -31,3 +37,24 @@ export const SInput = styled(Input.Search).attrs({
     height: 100%;
   }
 `;
+
+export const STagList = styled.div`
+  display: flex;
+  justify-self: center;
+  width: 100%;
+  gap: 10px;
+  overflow: hidden;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & .ant-tag {
+    margin-inline-end: 0;
+  }
+`;
+
+export const STag = styled(Tag).attrs({
+  bordered: false,
+})``;
