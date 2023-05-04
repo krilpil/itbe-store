@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Input, Select, Space, Tag } from "antd";
+import { MagnifyingGlassIcon } from "@shared/assets";
 
 export const SWrapper = styled.div`
   display: flex;
@@ -29,22 +30,26 @@ export const SSelect = styled(Select)`
 
 export const SInput = styled(Input.Search).attrs({
   placeholder: "Например, Adidas Y-3 Kaiwa",
-  enterButton: "Поиск",
   allowClear: true,
 })`
   & .ant-input-affix-wrapper,
   & .ant-btn {
     height: 100%;
   }
+
+  & .ant-input-search-button > span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 `;
 
 export const STagList = styled.div`
   display: flex;
-  justify-self: center;
+  flex-wrap: wrap;
+  //justify-self: center;
   width: 100%;
   gap: 10px;
-  overflow: hidden;
-  overflow-x: auto;
 
   &::-webkit-scrollbar {
     display: none;
@@ -58,3 +63,7 @@ export const STagList = styled.div`
 export const STag = styled(Tag).attrs({
   bordered: false,
 })``;
+
+export const SMagnifyingGlassIcon = styled(MagnifyingGlassIcon)`
+  max-width: none;
+`;

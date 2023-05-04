@@ -17,12 +17,22 @@ export const SAdvancedFilters = styled(Collapse).attrs({
 
 export const SForm = styled(Form)`
   display: grid;
-  grid-gap: 0 30px;
+  grid-gap: 16px;
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.maxLaptops}px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.maxMobile}px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
-export const SFormItem = styled(Form.Item)`
+export const SFormItem = styled(Form.Item).attrs({
+  noStyle: true,
+})`
   display: flex;
   flex-direction: column;
 `;

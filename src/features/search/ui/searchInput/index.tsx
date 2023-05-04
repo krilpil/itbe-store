@@ -1,11 +1,26 @@
-import { SInput, SSelect, STagList, SWrapper, SSelectWithInput, STag } from "./searchInput.styles";
+import {
+  SInput,
+  SSelect,
+  STagList,
+  SWrapper,
+  SSelectWithInput,
+  STag,
+  SMagnifyingGlassIcon,
+} from "./searchInput.styles";
+
+const EnterButton = () => (
+  <span>
+    <SMagnifyingGlassIcon />
+    Найти!
+  </span>
+);
 
 const SearchInput = () => {
   return (
     <SWrapper>
       <SSelectWithInput>
         <SSelect defaultValue="Все категории" />
-        <SInput />
+        <SInput enterButton={<EnterButton />} />
       </SSelectWithInput>
       <STagList>
         <STag>Красная оксфордская рубашка</STag>
