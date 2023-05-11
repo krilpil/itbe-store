@@ -15,7 +15,7 @@ export const SAdvancedFilters = styled(Collapse).attrs({
   }
 `;
 
-export const SForm = styled(Form)`
+export const SForm = styled.div`
   display: grid;
   grid-gap: 16px;
   grid-template-columns: repeat(3, 1fr);

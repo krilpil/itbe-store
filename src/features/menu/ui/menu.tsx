@@ -1,4 +1,4 @@
-import { SMenu } from "@features/menu/ui/menu.styles";
+import { SList, SMenu } from "@features/menu/ui/menu.styles";
 import { useState } from "react";
 import { MenuProps } from "antd";
 import MenuItems from "../model/MenuItems";
@@ -11,7 +11,11 @@ const Menu = () => {
     setOpenKeys(currentKey ? [currentKey] : []);
   };
 
-  return <SMenu items={MenuItems} openKeys={openKeys} onOpenChange={handlerOpenChange} />;
+  return (
+    <SMenu>
+      <SList items={MenuItems} openKeys={openKeys} onOpenChange={handlerOpenChange} />
+    </SMenu>
+  );
 };
 
 export default Menu;

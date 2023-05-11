@@ -1,6 +1,20 @@
 import styled from "styled-components";
-import { Input, Select, Space, Tag } from "antd";
+import { Segmented, Input, Select, Space, Tag } from "antd";
+
 import { MagnifyingGlassIcon } from "@shared/assets";
+
+export const SSearch = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+`;
+
+export const SSegmented = styled(Segmented)`
+  display: flex;
+  align-self: center;
+  width: max-content;
+`;
 
 export const SWrapper = styled.div`
   display: flex;
@@ -17,7 +31,9 @@ export const SSelectWithInput = styled(Space.Compact)`
   }
 `;
 
-export const SSelect = styled(Select)`
+export const SSelect = styled(Select).attrs({
+  dropdownMatchSelectWidth: false,
+})`
   & .ant-select-selector:has(.ant-select-selection-search) {
     height: 100%;
   }
