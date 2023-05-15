@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Formik } from "formik";
 import { SForm } from "@widgets/search/ui/search.styles";

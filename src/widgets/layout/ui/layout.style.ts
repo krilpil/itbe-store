@@ -7,7 +7,7 @@ const CssLayout = css`
   height: 50px;
 `;
 
-export const SLogo = styled.div`
+export const SLogo = styled.header`
   ${CssLayout}
 `;
 

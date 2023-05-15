@@ -1,3 +1,5 @@
+"use client";
+
 import { SList, SMenu } from "@features/menu/ui/menu.styles";
 import { useState } from "react";
 import { MenuProps } from "antd";

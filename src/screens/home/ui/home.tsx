@@ -1,3 +1,5 @@
+"use client";
+
 import { SHome, STitle } from "@screens/home/ui/home.styles";
 import Search from "@widgets/search";
 

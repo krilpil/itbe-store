@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Collapse } from "antd";
 import { StructureKeys } from "@entities/product";
