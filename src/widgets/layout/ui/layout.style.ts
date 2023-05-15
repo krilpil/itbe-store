@@ -21,7 +21,7 @@ export const SWrapper = styled.div`
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 1fr;
   min-height: 100vh;
-  margin: 0 20px;
+  padding: 0 20px;
 `;
 
 export const SContent = styled.div`

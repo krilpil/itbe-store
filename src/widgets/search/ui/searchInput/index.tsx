@@ -1,8 +1,9 @@
 import { useFormikContext } from "formik";
 import { IInitialValues } from "@widgets/search/model/IForm";
 import { Categories } from "@widgets/search/model/Category";
-import { Form } from "antd";
+import { Form, SegmentedProps } from "antd";
 import GenderList from "@widgets/search/model/Gender";
+import { useDevice } from "@shared/lib";
 import {
   SInput,
   SMagnifyingGlassIcon,
@@ -23,11 +24,14 @@ const EnterButton = () => (
 );
 
 const SearchInput = () => {
+  const { isMobile } = useDevice();
   const { values, handleChange, handleSubmit, setFieldValue } = useFormikContext<IInitialValues>();
 
   const handlerSearch = () => {
     handleSubmit();
   };
+
+  const sizeSegmented: SegmentedProps["size"] = isMobile ? "small" : "middle";
 
   return (
     <SSearch>
@@ -37,6 +41,7 @@ const SearchInput = () => {
         onChange={e => setFieldValue("gender", e)}
         defaultValue="Не важно"
         options={GenderList}
+        size={sizeSegmented}
       />
       <SWrapper>
         <SSelectWithInput>

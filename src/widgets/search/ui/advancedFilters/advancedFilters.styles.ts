@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Collapse, Form, Select } from "antd";
+import { Checkbox, Collapse, Form, Select, Slider } from "antd";
 
 export const SAdvancedFilters = styled(Collapse).attrs({
   ghost: true,
@@ -17,9 +17,14 @@ export const SAdvancedFilters = styled(Collapse).attrs({
 
 export const SForm = styled.div`
   display: grid;
-  grid-gap: 16px;
+  grid-gap: 18px;
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
+
+  & .ant-form-item {
+    display: initial;
+    margin-bottom: 0;
+  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.maxLaptops}px) {
     grid-template-columns: repeat(2, 1fr);
@@ -31,10 +36,23 @@ export const SForm = styled.div`
 `;
 
 export const SFormItem = styled(Form.Item).attrs({
-  noStyle: true,
-})`
-  display: flex;
-  flex-direction: column;
-`;
+  colon: true,
+})``;
 
 export const SSelect = styled(Select)``;
+
+export const STagSelect = styled(Select).attrs({
+  mode: "multiple",
+  maxTagCount: "responsive",
+})``;
+
+export const SCheckbox = styled(Checkbox)`
+  user-select: none;
+`;
+
+export const SSlider = styled(Slider).attrs({
+  range: true,
+  step: 500,
+  min: 0,
+  max: 100_000,
+})``;

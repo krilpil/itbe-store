@@ -5,8 +5,19 @@ import { Collapse } from "antd";
 import { StructureKeys } from "@entities/product";
 import { useFormikContext } from "formik";
 import { IInitialValues } from "@widgets/search/model/IForm";
-import { SFormItem, SAdvancedFilters, SForm, SSelect } from "./advancedFilters.styles";
+import ColorList from "@widgets/search/model/Colors";
+import {
+  SFormItem,
+  SAdvancedFilters,
+  SForm,
+  SSelect,
+  SSlider,
+  STagSelect,
+  SCheckbox,
+} from "./advancedFilters.styles";
 import { Categories, SubCategories, IList } from "../../model/Category";
+import BrandList from "../../model/Brands";
+import PriceMarks from "../../model/Price";
 
 const AdvancedFilters = () => {
   const { values, setFieldValue } = useFormikContext<IInitialValues>();
@@ -37,40 +48,43 @@ const AdvancedFilters = () => {
               options={subcategoryList}
               onChange={e => setFieldValue("subCategory", e)}
               disabled={!subcategoryList?.length}
-              placeholder="Выберите категорию"
+              placeholder="Выберите подкатегорию"
             />
           </SFormItem>
 
-          <SFormItem label="Дизайнеры">
+          <SFormItem label="Дизайнеры" valuePropName="brand">
             <SSelect
-              defaultValue={Categories && Categories[0].value}
-              options={Categories}
-              placeholder="Выберите категорию"
+              value={values.brand}
+              options={BrandList}
+              onChange={e => setFieldValue("brand", e)}
+              placeholder="Выберите бренд"
             />
           </SFormItem>
 
-          <SFormItem label="Цена и скидка">
-            <SSelect
-              defaultValue={Categories && Categories[0].value}
-              options={Categories}
-              placeholder="Выберите категорию"
+          <SFormItem label="Цена" valuePropName="price">
+            <SSlider
+              value={values.price}
+              onChange={e => setFieldValue("price", e)}
+              marks={PriceMarks}
             />
           </SFormItem>
 
-          <SFormItem label="Цвета">
-            <SSelect
-              defaultValue={Categories && Categories[0].value}
-              options={Categories}
-              placeholder="Выберите категорию"
+          <SFormItem label="Цвета" valuePropName="colors">
+            <STagSelect
+              value={values.colors}
+              onChange={e => setFieldValue("colors", e)}
+              options={ColorList}
+              placeholder="Выберите цвет"
             />
           </SFormItem>
 
-          <SFormItem label="Цена только со скидками">
-            <SSelect
-              defaultValue={Categories && Categories[0].value}
-              options={Categories}
-              placeholder="Выберите категорию"
-            />
+          <SFormItem label="Скидки" valuePropName="isDiscounts">
+            <SCheckbox
+              checked={values.isDiscounts}
+              onChange={e => setFieldValue("isDiscounts", e.target.checked)}
+            >
+              Показывать только со скидками
+            </SCheckbox>
           </SFormItem>
         </SForm>
       </Collapse.Panel>
