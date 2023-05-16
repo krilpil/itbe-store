@@ -1,18 +1,18 @@
-import Head from "next/head";
+import { Metadata } from "next";
 import Home from "@screens/home";
-import Layout from "@widgets/layout";
+import Menu from "@features/menu";
 
 const HomePage = () => {
   return (
     <>
-      <Head>
-        <title>Главная - ITBE</title>
-      </Head>
-      <Layout>
-        <Home />
-      </Layout>
+      <Menu />
+      <Home />
     </>
   );
+};
+
+export const metadata: Metadata = {
+  title: "Главная — ITBE.STORE",
 };
 
 export default HomePage;

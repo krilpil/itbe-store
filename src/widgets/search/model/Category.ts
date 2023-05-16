@@ -1,5 +1,5 @@
 import { SelectProps } from "antd";
-import IStructures, { IStructure, StructureKeys } from "@entities/product/model/IStructures";
+import IStructures, { IStructure } from "@entities/product/model/IStructures";
 
 interface IItems extends Omit<IStructure, "key"> {
   value: IStructure["key"];
@@ -12,7 +12,12 @@ const Categories: IList = IStructures.map(({ label, key }) => ({
   value: key,
 }));
 
-const SubCategories = (categoryKey?: StructureKeys): IList => {
+Categories.unshift({
+  label: "Все категории",
+  value: "0",
+});
+
+const SubCategories = (categoryKey?: string): IList => {
   const subCategories = IStructures.find(value => {
     return value.key === categoryKey;
   });

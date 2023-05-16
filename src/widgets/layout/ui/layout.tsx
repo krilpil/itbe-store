@@ -1,18 +1,13 @@
 "use client";
 
 import { PropsWithChildren } from "react";
-import Menu from "@features/menu";
-import { SFooter, SLogo, SContent, SWrapper, SMain } from "./layout.style";
+import { SFooter, SLogo, SContent, SWrapper } from "./layout.style";
 
 const Layout = ({ children }: PropsWithChildren) => {
   return (
     <SWrapper>
       <SLogo>ITBE.STORE</SLogo>
-      <SContent>
-        <Menu />
-        <SMain>{children}</SMain>
-      </SContent>
-
+      <SContent>{children}</SContent>
       <SFooter>Created by Bespalov K.</SFooter>
     </SWrapper>
   );

@@ -5,6 +5,7 @@ export const SHome = styled.div`
   display: grid;
   grid-template-rows: 1fr 2fr auto;
   height: 100%;
+  width: 100%;
   justify-items: center;
   gap: 20px;
 `;

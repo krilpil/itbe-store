@@ -1,10 +1,10 @@
-import { GenderKeys, StructureKeys } from "@entities/product";
+import { GenderKeys } from "@entities/product";
 
 interface IInitialValues {
   searchQuery: string;
   gender: GenderKeys;
-  category: StructureKeys;
-  subCategory: StructureKeys | null;
+  category: string | null;
+  subCategory: string | null;
   brand: number | null;
   price: [number, number];
   colors: string[];
@@ -14,7 +14,7 @@ interface IInitialValues {
 const initialValues: IInitialValues = {
   searchQuery: "",
   gender: GenderKeys.all,
-  category: StructureKeys.all,
+  category: "0",
   subCategory: null,
   brand: null,
   price: [0, 100_000],

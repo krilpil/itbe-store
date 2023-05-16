@@ -9,6 +9,7 @@ declare module "styled-components" {
       maxDesktops: number;
     };
     colors: {
+      middleGray: string;
       lightGray: string;
       white: string;
     };

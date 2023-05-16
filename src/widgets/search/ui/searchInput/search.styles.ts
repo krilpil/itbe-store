@@ -17,8 +17,7 @@ export const SSegmented = styled(Segmented)`
 `;
 
 export const SWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 10px;
   width: 100%;
 `;
@@ -61,9 +60,10 @@ export const SInput = styled(Input.Search).attrs({
 `;
 
 export const STagList = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  //justify-self: center;
+  max-width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  overflow: auto;
   width: 100%;
   gap: 10px;
 
@@ -78,7 +78,10 @@ export const STagList = styled.div`
 
 export const STag = styled(Tag).attrs({
   bordered: false,
-})``;
+})`
+  display: grid;
+  position: relative;
+`;
 
 export const SMagnifyingGlassIcon = styled(MagnifyingGlassIcon)`
   max-width: none;

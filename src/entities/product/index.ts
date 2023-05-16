@@ -1,4 +1,4 @@
-import IStructures, { IStructure, StructureKeys } from "./model/IStructures";
+import IStructures, { IStructure } from "./model/IStructures";
 import Gender, { GenderKeys } from "./model/IGender";
 
-export { IStructures, Gender, GenderKeys, StructureKeys, type IStructure };
+export { IStructures, Gender, GenderKeys, type IStructure };

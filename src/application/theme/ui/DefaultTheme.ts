@@ -9,6 +9,7 @@ const theme: DefaultTheme = {
     maxDesktops: ScreenBreakpoints.maxDesktops,
   },
   colors: {
+    middleGray: "rgba(5, 5, 5, 0.06)",
     lightGray: "#f4f2f0",
     white: "#ffffff",
   },

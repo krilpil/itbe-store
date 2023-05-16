@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Collapse } from "antd";
-import { StructureKeys } from "@entities/product";
 import { useFormikContext } from "formik";
 import { IInitialValues } from "@widgets/search/model/IForm";
 import ColorList from "@widgets/search/model/Colors";
@@ -26,7 +25,7 @@ const AdvancedFilters = () => {
 
   const handlerChangeCategory = (value: unknown) => {
     setFieldValue("category", value);
-    setSubcategoryList(SubCategories(value as StructureKeys));
+    setSubcategoryList(SubCategories(value as string));
   };
 
   return (

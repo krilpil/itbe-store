@@ -4,7 +4,8 @@ import { Menu } from "antd";
 export const SMenu = styled.menu`
   display: flex;
   background-color: inherit;
-  width: 250px;
+  max-width: 250px;
+  width: 100%;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.maxTablets}px) {
     display: none;
