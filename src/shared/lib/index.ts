@@ -1,4 +1,5 @@
-import useDevice from "@shared/lib/hooks/useDevice";
+import useDevice from "./hooks/useDevice";
 import ScreenBreakpoints from "./constants/ScreenBreakpoints";
+import getPriceWithSpace from "./helpers/getPriceWithSpace";
 
-export { ScreenBreakpoints, useDevice };
+export { ScreenBreakpoints, useDevice, getPriceWithSpace };

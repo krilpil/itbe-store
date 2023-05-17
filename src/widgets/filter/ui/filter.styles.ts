@@ -1,9 +1,7 @@
 import styled from "styled-components";
 import { Collapse } from "antd";
 
-export const SFilter = styled.aside`
-  border-left: 1px solid ${({ theme }) => theme.colors.middleGray};
-`;
+export const SFilter = styled.aside``;
 
 export const SCollapse = styled(Collapse).attrs({
   ghost: true,
@@ -11,4 +9,8 @@ export const SCollapse = styled(Collapse).attrs({
   width: 100%;
 `;
 
-export const SPanel = styled(Collapse.Panel)``;
+export const SPanel = styled(Collapse.Panel)`
+  .ant-collapse-header-text {
+    user-select: none;
+  }
+`;
