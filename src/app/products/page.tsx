@@ -1,16 +1,8 @@
 import { Metadata } from "next";
-import Menu from "@features/menu";
 import Products from "@screens/products";
-import Filter from "@features/filter";
 
 const ProductsPage = () => {
-  return (
-    <>
-      <Menu />
-      <Products />
-      <Filter />
-    </>
-  );
+  return <Products />;
 };
 
 export const metadata: Metadata = {

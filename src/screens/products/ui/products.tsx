@@ -2,13 +2,17 @@
 
 import React from "react";
 import Link from "next/link";
+import Filter from "@features/filter";
 import { SProducts } from "./products.styles";
 
 const Products = () => {
   return (
     <SProducts>
-      <Link href="/">Назад</Link>
-      <p>qweqweeqw</p>
+      <div>
+        <Link href="/">Назад</Link>
+        <p>qweqweeqw</p>
+      </div>
+      <Filter />
     </SProducts>
   );
 };

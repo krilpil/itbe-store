@@ -2,11 +2,7 @@ import { Metadata } from "next";
 import Home from "@screens/home";
 
 const HomePage = () => {
-  return (
-    <>
-      <Home />
-    </>
-  );
+  return <Home />;
 };
 
 export const metadata: Metadata = {
