@@ -1,11 +1,9 @@
 import { Metadata } from "next";
 import Home from "@screens/home";
-import Menu from "@features/menu";
 
 const HomePage = () => {
   return (
     <>
-      <Menu />
       <Home />
     </>
   );

@@ -1,12 +1,13 @@
 "use client";
 
 import { PropsWithChildren } from "react";
-import { SFooter, SLogo, SContent, SWrapper } from "./layout.style";
+import Header from "@widgets/header";
+import { SFooter, SContent, SWrapper } from "./layout.style";
 
 const Layout = ({ children }: PropsWithChildren) => {
   return (
     <SWrapper>
-      <SLogo>ITBE.STORE</SLogo>
+      <Header />
       <SContent>{children}</SContent>
       <SFooter>Created by Bespalov K.</SFooter>
     </SWrapper>

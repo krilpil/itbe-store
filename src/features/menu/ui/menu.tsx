@@ -1,6 +1,6 @@
 "use client";
 
-import { SList, SMenu } from "@features/menu/ui/menu.styles";
+import { SList } from "@features/menu/ui/menu.styles";
 import { useState } from "react";
 import { MenuProps } from "antd";
 import MenuItems from "../model/MenuItems";
@@ -14,9 +14,9 @@ const Menu = () => {
   };
 
   return (
-    <SMenu>
+    <menu>
       <SList items={MenuItems} openKeys={openKeys} onOpenChange={handlerOpenChange} />
-    </SMenu>
+    </menu>
   );
 };
 

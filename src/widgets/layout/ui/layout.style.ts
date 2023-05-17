@@ -18,7 +18,7 @@ export const SFooter = styled.footer`
 
 export const SWrapper = styled.div`
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: max-content 1fr auto;
   grid-template-columns: 1fr;
   min-height: 100vh;
   padding: 0 20px;
