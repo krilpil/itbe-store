@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import Image from "next/image";
 import { getPriceWithSpace } from "@shared/lib";
-import { SCard, SPrice } from "./card.styles";
+import { SCard, SPrice, SProperties } from "./card.styles";
 
 const Cover = () => (
   <Image
@@ -23,8 +23,10 @@ const Card: FC<CardProps> = ({ title, color, price }) => {
   return (
     <SCard cover={<Cover />}>
       <p>{title}</p>
-      <SPrice>{color}</SPrice>
-      <p>{getPriceWithSpace({ price })} &#8381;</p>
+      <SProperties>
+        <SPrice>{color}</SPrice>
+        <p>{getPriceWithSpace({ price })} &#8381;</p>
+      </SProperties>
     </SCard>
   );
 };

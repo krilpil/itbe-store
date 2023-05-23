@@ -1,4 +1,10 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, css } from "styled-components";
+
+const AntSelectDropdown = css`
+  .ant-select-dropdown {
+    width: max-content !important;
+  }
+`;
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -112,6 +118,8 @@ const GlobalStyle = createGlobalStyle`
   legend {
     display: block;
   }
+  
+  ${AntSelectDropdown}
 `;
 
 export default GlobalStyle;
