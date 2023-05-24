@@ -1,29 +1,41 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Filter from "@widgets/filter";
 import ProductList from "@widgets/productList";
-import { useDevice } from "@shared/lib";
-import { Breadcrumb } from "antd";
-import { SContent, SNavigation, SProducts, SSelect, STitle, SToolbar } from "./products.styles";
+import {
+  SBreadcrumb,
+  SContent,
+  SButtonFilters,
+  SNavigation,
+  SProducts,
+  SSelect,
+  STitle,
+  SToolbar,
+  SCount,
+  SRightBar,
+  SDrawer,
+} from "./products.styles";
 
 const Products = () => {
-  const { isLaptops } = useDevice();
+  const [isOpenFilter, setOpenFilter] = useState(false);
+
+  const handlerChangeDisplayFilter = () => {
+    setOpenFilter(!isOpenFilter);
+  };
 
   return (
     <SProducts>
       <SContent>
         <SNavigation>
-          {isLaptops || (
-            <Breadcrumb
-              separator=">"
-              items={[
-                { title: "Мужское", href: "" },
-                { title: "Обувь", href: "" },
-                { title: "Кроссовки", href: "" },
-              ]}
-            />
-          )}
+          <SBreadcrumb
+            items={[
+              { title: "Мужское", href: "" },
+              { title: "Обувь", href: "" },
+              { title: "Кроссовки", href: "" },
+            ]}
+          />
+
           <STitle>Кроссовки</STitle>
         </SNavigation>
 
@@ -38,13 +50,22 @@ const Products = () => {
               { value: "5", label: "По скидкам" },
             ]}
           />
-          <p>34021 товаров</p>
+
+          <SButtonFilters onClick={handlerChangeDisplayFilter}>Фильтры</SButtonFilters>
+
+          <SCount>34021 товаров</SCount>
         </SToolbar>
 
         <ProductList />
       </SContent>
 
-      {isLaptops || <Filter />}
+      <SRightBar>
+        <Filter />
+      </SRightBar>
+
+      <SDrawer open={isOpenFilter} onClose={handlerChangeDisplayFilter}>
+        <Filter />
+      </SDrawer>
     </SProducts>
   );
 };

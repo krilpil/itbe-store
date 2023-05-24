@@ -7,10 +7,6 @@ const CssLayout = css`
   height: 50px;
 `;
 
-export const SLogo = styled.header`
-  ${CssLayout}
-`;
-
 export const SFooter = styled.footer`
   color: #cccccc;
   ${CssLayout}
@@ -22,6 +18,10 @@ export const SWrapper = styled.div`
   grid-template-columns: 1fr;
   min-height: 100vh;
   padding: 0 20px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.maxLaptops}px) {
+    padding: 0 10px;
+  }
 `;
 
 export const SContent = styled.div`

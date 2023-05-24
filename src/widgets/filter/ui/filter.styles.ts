@@ -5,6 +5,7 @@ export const SFilter = styled.aside``;
 
 export const SCollapse = styled(Collapse).attrs({
   ghost: true,
+  accordion: true,
 })`
   display: grid;
   width: 100%;
@@ -13,6 +14,8 @@ export const SCollapse = styled(Collapse).attrs({
 export const SPanel = styled(Collapse.Panel)`
   .ant-collapse-header-text {
     user-select: none;
+    text-transform: uppercase;
+    font-weight: 500;
   }
 `;
 
