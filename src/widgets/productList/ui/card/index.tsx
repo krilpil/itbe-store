@@ -7,7 +7,7 @@ const Cover = () => (
   <Image
     width={251}
     height={251}
-    loading="lazy"
+    priority
     src="https://media.endclothing.com/media/f_auto,q_auto:eco,w_1600/prodmedia/media/catalog/product/0/3/03-05-2023_27693201_m5.jpg"
     alt="Имадже"
   />

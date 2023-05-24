@@ -14,23 +14,16 @@ const Products = () => {
     <SProducts>
       <SContent>
         <SNavigation>
-          <Breadcrumb
-            separator=">"
-            items={[
-              {
-                title: "Мужское",
-                href: "",
-              },
-              {
-                title: "Обувь",
-                href: "",
-              },
-              {
-                title: "Кроссовки",
-                href: "",
-              },
-            ]}
-          />
+          {isLaptops || (
+            <Breadcrumb
+              separator=">"
+              items={[
+                { title: "Мужское", href: "" },
+                { title: "Обувь", href: "" },
+                { title: "Кроссовки", href: "" },
+              ]}
+            />
+          )}
           <STitle>Кроссовки</STitle>
         </SNavigation>
 

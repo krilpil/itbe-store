@@ -6,8 +6,8 @@ import { SProductList } from "./productList.styles";
 const ProductList = () => {
   return (
     <SProductList>
-      {products.map(value => (
-        <Card {...value} />
+      {products.map(({ id, ...props }) => (
+        <Card key={id} {...props} />
       ))}
     </SProductList>
   );

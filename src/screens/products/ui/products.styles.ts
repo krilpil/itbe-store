@@ -3,7 +3,7 @@ import { Select, Typography } from "antd";
 
 export const SProducts = styled.div`
   display: grid;
-  grid-template-columns: 1fr minmax(max-content, 250px);
+  grid-template-columns: 1fr 250px;
   width: 100%;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.maxLaptops}px) {
@@ -24,6 +24,10 @@ export const SNavigation = styled.div`
   align-items: center;
   padding-bottom: 20px;
   border-bottom: 1px solid ${({ theme }) => theme.colors.lightGray};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.maxLaptops}px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const STitle = styled(Typography.Title)`
@@ -42,7 +46,6 @@ export const SToolbar = styled.div`
 
 export const SSelect = styled(Select).attrs({
   bordered: false,
-  popupMatchSelectWidth: true,
 })`
   width: max-content;
 
