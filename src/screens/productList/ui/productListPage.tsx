@@ -15,9 +15,9 @@ import {
   SCount,
   SRightBar,
   SDrawer,
-} from "./products.styles";
+} from "./productListPage.styles";
 
-const Products = () => {
+const ProductListPage = () => {
   const [isOpenFilter, setOpenFilter] = useState(false);
 
   const handlerChangeDisplayFilter = () => {
@@ -70,4 +70,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default ProductListPage;

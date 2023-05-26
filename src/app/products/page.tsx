@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import Products from "@screens/products";
+import Products from "@screens/productList";
 
 const ProductsPage = () => {
   return <Products />;

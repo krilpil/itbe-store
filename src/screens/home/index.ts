@@ -1,3 +1,3 @@
-import Home from "./ui/home";
+import HomePage from "./ui/homePage";
 
-export default Home;
+export default HomePage;
