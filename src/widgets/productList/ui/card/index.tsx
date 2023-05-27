@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import Image from "next/image";
 import { getPriceWithSpace } from "@shared/lib";
+import { usePathname, useRouter } from "next/navigation";
 import { SCard, SPrice, SProperties } from "./card.styles";
 
 const Cover = () => (
@@ -12,16 +13,22 @@ const Cover = () => (
     alt="Имадже"
   />
 );
-
 interface CardProps {
+  id: string;
   title: string;
   color: string;
   price: number;
 }
 
-const Card: FC<CardProps> = ({ title, color, price }) => {
+const Card: FC<CardProps> = ({ title, color, price, id }) => {
+  const router = useRouter();
+  const pathname = usePathname();
+  const handlerClickCard = () => {
+    router.push(`${pathname}/${id}`);
+  };
+
   return (
-    <SCard cover={<Cover />}>
+    <SCard onClick={handlerClickCard} cover={<Cover />}>
       <p>{title}</p>
       <SProperties>
         <SPrice>{color}</SPrice>

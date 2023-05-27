@@ -1,10 +1,5 @@
-"use client";
-
 import ProductPage from "@screens/product";
-
-// const metadata: Metadata = {
-//   title: "Товар — ITBE.STORE",
-// };
+import { Metadata } from "next";
 
 interface ProductPageParams {
   params: {
@@ -12,8 +7,12 @@ interface ProductPageParams {
   };
 }
 
-const Product = ({ params }: ProductPageParams) => {
-  return <ProductPage {...params} />;
-};
+export function generateMetadata({ params }: ProductPageParams): Metadata {
+  return {
+    title: params.id.toString(),
+  };
+}
 
-export default Product;
+export default function Product({ params }: ProductPageParams) {
+  return <ProductPage {...params} />;
+}
