@@ -2,33 +2,27 @@ import React, { FC } from "react";
 import Image from "next/image";
 import { getPriceWithSpace } from "@shared/lib";
 import { usePathname, useRouter } from "next/navigation";
+import { IProduct } from "@shared/model";
 import { SCard, SPrice, SProperties } from "./card.styles";
 
-const Cover = () => (
-  <Image
-    width={251}
-    height={251}
-    priority
-    src="https://media.endclothing.com/media/f_auto,q_auto:eco,w_1600/prodmedia/media/catalog/product/0/3/03-05-2023_27693201_m5.jpg"
-    alt="Имадже"
-  />
-);
-interface CardProps {
-  id: string;
-  title: string;
-  color: string;
-  price: number;
+interface CoverProps {
+  image: string;
 }
+const Cover: FC<CoverProps> = ({ image }) => (
+  <Image width={251} height={251} priority src={image} alt="Имадже" />
+);
 
-const Card: FC<CardProps> = ({ title, color, price, id }) => {
+type CardProps = Pick<IProduct, "productId" | "title" | "color" | "price" | "images">;
+
+const Card: FC<CardProps> = ({ productId, title, color, price, images }) => {
   const router = useRouter();
   const pathname = usePathname();
   const handlerClickCard = () => {
-    router.push(`${pathname}/${id}`);
+    router.push(`${pathname}/${productId}`);
   };
 
   return (
-    <SCard onClick={handlerClickCard} cover={<Cover />}>
+    <SCard onClick={handlerClickCard} cover={<Cover image={images[0]} />}>
       <p>{title}</p>
       <SProperties>
         <SPrice>{color}</SPrice>

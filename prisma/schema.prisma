@@ -11,9 +11,9 @@ datasource db {
 }
 
 model products {
-  product_id Int      @id @default(autoincrement())
-  title      String
-  price      Int
-  color      String
-  images     String[]
+  productId Int      @id @default(autoincrement())
+  title     String
+  price     Int
+  color     String
+  images    String[]
 }

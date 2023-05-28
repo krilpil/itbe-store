@@ -1,13 +1,17 @@
-import React from "react";
-import products from "@shared/mock/products";
+import { IProduct } from "@shared/model";
+import { FC } from "react";
 import Card from "./card";
 import { SProductList } from "./productList.styles";
 
-const ProductList = () => {
+interface ProductListProps {
+  products: IProduct[];
+}
+
+const ProductList: FC<ProductListProps> = ({ products }) => {
   return (
     <SProductList>
-      {products.map(({ id, ...props }) => (
-        <Card key={id} id={id} {...props} />
+      {products.map(values => (
+        <Card key={values.productId} {...values} />
       ))}
     </SProductList>
   );

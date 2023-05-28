@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import Filter from "@widgets/filter";
 import ProductList from "@widgets/productList";
+import { IProduct } from "@shared/model";
 import {
   SBreadcrumb,
   SContent,
@@ -17,7 +18,11 @@ import {
   SDrawer,
 } from "./productListPage.styles";
 
-const ProductListPage = () => {
+interface ProductListProps {
+  products: IProduct[];
+}
+
+const ProductListPage: FC<ProductListProps> = ({ products }) => {
   const [isOpenFilter, setOpenFilter] = useState(false);
 
   const handlerChangeDisplayFilter = () => {
@@ -56,7 +61,7 @@ const ProductListPage = () => {
           <SCount>34021 товаров</SCount>
         </SToolbar>
 
-        <ProductList />
+        <ProductList products={products} />
       </SContent>
 
       <SRightBar>
