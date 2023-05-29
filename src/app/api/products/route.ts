@@ -1,9 +1,23 @@
-import { PrismaClient } from "@prisma/client";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import prisma from "../prisma";
 
-const prisma = new PrismaClient();
+export async function GET(request: NextRequest) {
+  const categoryId = request.nextUrl.searchParams.get("category") || "";
 
-export async function GET() {
-  const products = await prisma.products.findMany();
+  const products = await prisma.products.findMany({
+    select: {
+      productId: true,
+      categoryName: true,
+      title: true,
+      color: true,
+      images: true,
+      price: true,
+    },
+    where: {
+      categoryName: {
+        categoryId: +categoryId,
+      },
+    },
+  });
   return NextResponse.json(products);
 }

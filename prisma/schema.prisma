@@ -5,15 +5,23 @@ generator client {
 
 datasource db {
   provider          = "postgresql"
-  url               = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl         = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
-  shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
+  url               = env("POSTGRES_PRISMA_URL")
+  directUrl         = env("POSTGRES_URL_NON_POOLING")
+  shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
 model products {
-  productId Int      @id @default(autoincrement())
-  title     String
-  price     Int
-  color     String
-  images    String[]
+  productId    Int        @id @default(autoincrement())
+  categoryId   Int
+  categoryName categories @relation(fields: [categoryId], references: [categoryId])
+  title        String
+  price        Int
+  color        String
+  images       String[]
+}
+
+model categories {
+  categoryId   Int        @id @default(autoincrement())
+  categoryName String
+  products     products[]
 }
