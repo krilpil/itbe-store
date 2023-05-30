@@ -1,21 +1,20 @@
 "use client";
 
 import { SList } from "@features/menu/ui/menu.styles";
-import { useState } from "react";
 import { MenuProps } from "antd";
+import { useRouter } from "next/navigation";
 import MenuItems from "../model/MenuItems";
 
 const Menu = () => {
-  const [openKeys, setOpenKeys] = useState<string[]>([]);
+  const router = useRouter();
 
-  const handlerOpenChange: MenuProps["onOpenChange"] = keys => {
-    const currentKey = keys.at(-1) || "";
-    setOpenKeys(currentKey ? [currentKey] : []);
+  const handlerOnSelect: MenuProps["onSelect"] = categoryId => {
+    router.push(`products?categoryId=${categoryId.key}`);
   };
 
   return (
     <menu>
-      <SList items={MenuItems} openKeys={openKeys} onOpenChange={handlerOpenChange} />
+      <SList items={MenuItems} onSelect={handlerOnSelect} />
     </menu>
   );
 };

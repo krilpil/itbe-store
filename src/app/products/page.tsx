@@ -1,26 +1,26 @@
 import { Metadata } from "next";
 import Products from "@screens/productList";
-import { IProduct } from "@shared/model";
+import { getProducts } from "@shared/api";
+import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Список товаров — ITBE.STORE",
 };
 
-// TODO: Вынести в запрос и добавить переменный адрес
-const getProducts = async (): Promise<IProduct[]> => {
-  const response = await fetch("http://localhost:3000/api/products", {
-    next: {
-      revalidate: 3600,
-    },
-  });
+interface ProductPageProps {
+  searchParams: {
+    categoryId: number;
+  };
+}
 
-  if (!response.ok) throw new Error("Failed to fetch data");
+export default async function ProductsPage({ searchParams }: ProductPageProps) {
+  const { categoryId } = searchParams;
+  const products = await getProducts({ categoryId });
 
-  return response.json();
-};
-
-export default async function ProductsPage() {
-  const products = await getProducts();
+  if (!products.length) {
+    notFound();
+    return null;
+  }
 
   return <Products products={products} />;
 }
