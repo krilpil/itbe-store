@@ -1,3 +1,3 @@
-import { ChevronDownIcon, MagnifyingGlassIcon } from "@shared/assets/icons";
+import { ChevronDownIcon, MagnifyingGlassIcon, HouseIcon } from "@shared/assets/icons";
 
-export { ChevronDownIcon, MagnifyingGlassIcon };
+export { ChevronDownIcon, MagnifyingGlassIcon, HouseIcon };

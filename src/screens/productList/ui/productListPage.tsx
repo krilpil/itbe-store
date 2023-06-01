@@ -5,6 +5,8 @@ import Filter from "@widgets/filter";
 import ProductList from "@widgets/productList";
 import { IProduct } from "@shared/model";
 import NotFound from "@widgets/notFound";
+import Link from "next/link";
+import { HouseIcon } from "@shared/assets";
 import {
   SBreadcrumb,
   SContent,
@@ -36,6 +38,13 @@ const ProductListPage: FC<ProductListProps> = ({ products }) => {
         <SNavigation>
           <SBreadcrumb
             items={[
+              {
+                title: (
+                  <Link href="/">
+                    <HouseIcon />
+                  </Link>
+                ),
+              },
               { title: "Мужское", href: "" },
               { title: "Обувь", href: "" },
               { title: "Кроссовки", href: "" },

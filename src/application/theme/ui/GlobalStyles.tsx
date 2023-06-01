@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
-    letter-spacing: 0.05rem;
+    letter-spacing: 0.025rem;
     font-weight: 400;
     background-color: ${({ theme }) => theme.colors.lightGray};
   }

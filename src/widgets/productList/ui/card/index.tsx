@@ -3,7 +3,7 @@ import Image from "next/image";
 import { getPriceWithSpace } from "@shared/lib";
 import { usePathname, useRouter } from "next/navigation";
 import { IProduct } from "@shared/model";
-import { SCard, SPrice, SProperties } from "./card.styles";
+import { SCard, SPrice, SProperties, STitle } from "./card.styles";
 
 interface CoverProps {
   image: string;
@@ -23,7 +23,7 @@ const Card: FC<CardProps> = ({ productId, title, color, price, images }) => {
 
   return (
     <SCard onClick={handlerClickCard} cover={<Cover image={images[0]} />}>
-      <p>{title}</p>
+      <STitle>{title}</STitle>
       <SProperties>
         <SPrice>{color}</SPrice>
         <p>{getPriceWithSpace({ price })} &#8381;</p>

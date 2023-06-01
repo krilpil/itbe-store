@@ -28,7 +28,7 @@ const getProducts = async ({
     dynamicParams = {
       ...dynamicParams,
       title: {
-        search: searchQuery,
+        search: searchQuery.toLowerCase(),
       },
     };
   }

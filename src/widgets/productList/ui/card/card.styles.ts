@@ -8,10 +8,22 @@ export const SCard = styled(Card).attrs({
   grid-template-rows: max-content 1fr;
   height: 100%;
 
+  .ant-card-cover {
+    margin-top: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+  }
+
   .ant-card-body {
     display: flex;
     flex-direction: column;
     padding: 14px;
+  }
+`;
+
+export const STitle = styled.p`
+  &:first-letter {
+    text-transform: uppercase;
   }
 `;
 
