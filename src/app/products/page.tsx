@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import Products from "@screens/productList";
 import { getProducts } from "@shared/api";
-import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Список товаров — ITBE.STORE",
@@ -9,18 +8,16 @@ export const metadata: Metadata = {
 
 interface ProductPageProps {
   searchParams: {
-    categoryId: number;
+    categoryId: string;
+    gender?: string;
   };
 }
 
 export default async function ProductsPage({ searchParams }: ProductPageProps) {
-  const { categoryId } = searchParams;
-  const products = await getProducts({ categoryId });
+  const categoryId = Number(searchParams.categoryId);
+  const gender = Number(searchParams.gender);
 
-  if (!products.length) {
-    notFound();
-    return null;
-  }
+  const products = await getProducts({ categoryId, gender });
 
   return <Products products={products} />;
 }

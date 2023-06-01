@@ -4,6 +4,7 @@ import React, { FC, useState } from "react";
 import Filter from "@widgets/filter";
 import ProductList from "@widgets/productList";
 import { IProduct } from "@shared/model";
+import NotFound from "@widgets/notFound";
 import {
   SBreadcrumb,
   SContent,
@@ -29,7 +30,7 @@ const ProductListPage: FC<ProductListProps> = ({ products }) => {
     setOpenFilter(!isOpenFilter);
   };
 
-  return (
+  return products.length ? (
     <SProducts>
       <SContent>
         <SNavigation>
@@ -72,6 +73,8 @@ const ProductListPage: FC<ProductListProps> = ({ products }) => {
         <Filter />
       </SDrawer>
     </SProducts>
+  ) : (
+    <NotFound />
   );
 };
 

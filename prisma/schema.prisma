@@ -14,6 +14,7 @@ model products {
   productId    Int        @id @default(autoincrement())
   categoryId   Int
   categoryName categories @relation(fields: [categoryId], references: [categoryId])
+  gender       Int
   title        String
   price        Int
   color        String

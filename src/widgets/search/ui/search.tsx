@@ -15,7 +15,11 @@ const Search = () => {
     <Formik<IInitialValues>
       initialValues={initialValues}
       onSubmit={values => {
-        router.push(`products?categoryId=${values.category}`);
+        let route = `products?categoryId=${values.category}`;
+        if (values.gender) {
+          route += `&gender=${values.gender}`;
+        }
+        router.push(route);
       }}
     >
       <SForm>
