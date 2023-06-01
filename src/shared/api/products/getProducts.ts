@@ -2,17 +2,35 @@ import { IProduct } from "@shared/model";
 import prisma from "../../../app/api/prisma";
 
 interface IGetProducts {
-  categoryId: number;
+  searchQuery?: string;
+  categoryId?: number;
   gender?: number;
 }
 
-const getProducts = async ({ categoryId, gender }: IGetProducts): Promise<IProduct[]> => {
-  if (!categoryId) return [];
+const getProducts = async ({
+  categoryId,
+  gender,
+  searchQuery,
+}: IGetProducts): Promise<IProduct[]> => {
+  if (!categoryId && !searchQuery) return [];
 
   let dynamicParams = {};
 
+  if (categoryId) {
+    dynamicParams = { ...dynamicParams, categoryId };
+  }
+
   if (gender) {
     dynamicParams = { ...dynamicParams, gender };
+  }
+
+  if (searchQuery) {
+    dynamicParams = {
+      ...dynamicParams,
+      title: {
+        search: searchQuery,
+      },
+    };
   }
 
   const products = await prisma.products.findMany({
@@ -25,12 +43,7 @@ const getProducts = async ({ categoryId, gender }: IGetProducts): Promise<IProdu
       images: true,
       price: true,
     },
-    where: {
-      categoryName: {
-        categoryId: +categoryId,
-      },
-      ...dynamicParams,
-    },
+    where: { ...dynamicParams },
   });
 
   return products.map(value => ({
