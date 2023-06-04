@@ -3,10 +3,10 @@
 import React, { useState } from "react";
 import Filter from "@widgets/filter";
 import ProductList from "@widgets/productList";
-import { IProduct } from "@shared/model";
 import NotFound from "@widgets/notFound";
 import Link from "next/link";
 import { HouseIcon } from "@shared/assets";
+import { IProduct } from "@shared/model";
 import {
   SBreadcrumb,
   SContent,
@@ -22,11 +22,18 @@ import {
 } from "./productListPage.styles";
 
 const ProductListPage = () => {
+  // const searchParams = useSearchParams();
+  // const searchQuery = searchParams.get("searchQuery");
+  // const categoryId = searchParams.get("categoryId");
+  // const gender = searchParams.get("gender");
+
   const [isOpenFilter, setOpenFilter] = useState(false);
 
   const handlerChangeDisplayFilter = () => {
     setOpenFilter(!isOpenFilter);
   };
+
+  // const products = use(getProducts({ searchQuery, categoryId, gender }));
 
   const products: IProduct[] = [];
 
@@ -66,7 +73,7 @@ const ProductListPage = () => {
 
           <SButtonFilters onClick={handlerChangeDisplayFilter}>Фильтры</SButtonFilters>
 
-          <SCount>34021 товаров</SCount>
+          <SCount>{products.length} товар(ов)</SCount>
         </SToolbar>
 
         <ProductList products={products} />
