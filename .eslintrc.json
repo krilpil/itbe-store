@@ -12,6 +12,14 @@
     "node": true,
     "es6": true
   },
+  "overrides": [
+    {
+      "files": ["src/**/*.slice.ts"],
+      "rules": {
+        "no-param-reassign": "off"
+      }
+    }
+  ],
   "settings": {
     "react": {
       "version": "detect"

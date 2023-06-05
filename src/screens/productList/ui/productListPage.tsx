@@ -1,12 +1,14 @@
 "use client";
 
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import Filter from "@widgets/filter";
 import ProductList from "@widgets/productList";
-import { IProduct } from "@shared/model";
-import NotFound from "@widgets/notFound";
 import Link from "next/link";
 import { HouseIcon } from "@shared/assets";
+import { getProducts } from "@shared/api";
+
+import { useAppDispatch, useAppSelector } from "@shared/lib";
+import { selectorProductList, setProductList } from "@entities/product";
 import {
   SBreadcrumb,
   SContent,
@@ -21,18 +23,32 @@ import {
   SDrawer,
 } from "./productListPage.styles";
 
-interface ProductListProps {
-  products: IProduct[];
+interface IProductListProps {
+  categoryId: string | null;
+  gender: string | null;
+  searchQuery: string | null;
 }
 
-const ProductListPage: FC<ProductListProps> = ({ products }) => {
+const ProductListPage: FC<IProductListProps> = ({ categoryId, gender, searchQuery }) => {
+  const dispatch = useAppDispatch();
+
   const [isOpenFilter, setOpenFilter] = useState(false);
+
+  const products = useAppSelector(selectorProductList);
 
   const handlerChangeDisplayFilter = () => {
     setOpenFilter(!isOpenFilter);
   };
 
-  return products.length ? (
+  useEffect(() => {
+    dispatch(getProducts({ categoryId, gender, searchQuery }))
+      .unwrap()
+      .then(newProducts => {
+        dispatch(setProductList(newProducts));
+      });
+  }, []);
+
+  return (
     <SProducts>
       <SContent>
         <SNavigation>
@@ -82,8 +98,6 @@ const ProductListPage: FC<ProductListProps> = ({ products }) => {
         <Filter />
       </SDrawer>
     </SProducts>
-  ) : (
-    <NotFound />
   );
 };
 

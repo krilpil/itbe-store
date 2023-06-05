@@ -1,7 +1,6 @@
 import { PropsWithChildren } from "react";
 import { Inter } from "next/font/google";
 
-import Providers from "@application/providers";
 import Layout from "@widgets/layout";
 
 const inter = Inter({
@@ -13,12 +12,10 @@ const inter = Inter({
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <Providers>
-      <html lang="ru">
-        <body className={inter.className}>
-          <Layout>{children}</Layout>
-        </body>
-      </html>
-    </Providers>
+    <html lang="ru">
+      <body className={inter.className}>
+        <Layout>{children}</Layout>
+      </body>
+    </html>
   );
 }
